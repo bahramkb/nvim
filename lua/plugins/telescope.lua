@@ -17,6 +17,15 @@ return {
 
       require('telescope').load_extension('fzf')
 
+      require('telescope').setup {
+	defaults = {
+	  file_ignore_patterns = {
+	    "node_modules",
+	    "build"
+	  }
+	}
+      }
+
       vim.keymap.set("n", "<space>ff", require('telescope.builtin').find_files, { desc = "find files" })
       vim.keymap.set("n", "<space>fr", require('telescope.builtin').lsp_references, { desc = "find references" })
       vim.keymap.set("n", "<space>fd", require('telescope.builtin').lsp_definitions, { desc = "find definition" })
